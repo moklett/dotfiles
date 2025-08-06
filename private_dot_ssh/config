@@ -1,0 +1,7 @@
+Host *
+  UseKeychain yes
+  AddKeysToAgent yes
+  UseRoaming no
+  ServerAliveInterval 60
+  # Use the 1Password agent for auth
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

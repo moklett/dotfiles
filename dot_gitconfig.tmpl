@@ -1,0 +1,33 @@
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[user]
+  name = Michael Klett
+  email = {{ onepasswordRead "op://Private/Michael Klett/email" }}
+  signingkey = {{ onepasswordRead "op://Private/moklett-ssh-2025/public key" }}
+[gpg]
+  format = ssh
+[gpg "ssh"]
+  program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign"
+[commit]
+  gpgsign = true
+[help]
+  autocorrect = 1
+# Only push the current branch with 'git push'
+[push]
+  default = current
+[pull]
+  rebase = true
+[branch]
+  autosetupmerge = true
+[alias]
+  st = status
+  co = checkout
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+  recent = for-each-ref --count=20 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+[credential]
+  helper = osxkeychain
+[rerere]
+  enabled = true
