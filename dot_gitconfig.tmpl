@@ -5,8 +5,8 @@
   required = true
 [user]
   name = Michael Klett
-  email = {{ onepasswordRead "op://Private/Michael Klett/email" }}
-  signingkey = {{ onepasswordRead "op://Private/moklett-ssh-2025/public key" }}
+  email = {{ onepasswordRead "op://Private/Michael Klett/email" "my.1password.com" }}
+  signingkey = {{ onepasswordRead "op://Private/moklett-ssh-2025/public key" "my.1password.com" }}
 [gpg]
   format = ssh
 [gpg "ssh"]
